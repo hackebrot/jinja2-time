@@ -31,6 +31,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'jinja2',
+        'arrow'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
@@ -49,4 +50,3 @@ setup(
     ],
     keywords=['jinja2', 'extension', 'time'],
 )
-
