@@ -33,14 +33,6 @@ setup(
         'jinja2',
         'arrow'
     ],
-    entry_points={
-        'cookiecutter_ext': [
-            'TimeExtension = jinja2_time:TimeExtension',
-        ],
-        'cookiecutter_filter': [
-            'year = jinja2_time:year',
-        ],
-    },
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
