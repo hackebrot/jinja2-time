@@ -2,7 +2,7 @@
 
 import arrow
 
-from jinja2 import nodes, environmentfilter
+from jinja2 import nodes
 from jinja2.ext import Extension
 
 
@@ -34,10 +34,3 @@ class TimeExtension(Extension):
         call = self.call_method('_now', args, lineno=lineno)
 
         return nodes.Output([call], lineno=lineno)
-
-
-@environmentfilter
-def year(environment, value, timezone='utc', date_format=None):
-    date_format = date_format or environment.date_format
-    date = arrow.Arrow.strptime(value, date_format, tzinfo=timezone)
-    return date.strftime('%Y')
