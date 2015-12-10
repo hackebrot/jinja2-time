@@ -58,6 +58,13 @@ Python's `strftime()`_:
 
     template.render()
 
+Issues
+------
+
+If you encounter any problems, please `file an issue`_ along with a detailed description.
+
+.. _`file an issue`: https://github.com/hackebrot/jinja2-time/issues
+
 
 Code of Conduct
 ---------------
