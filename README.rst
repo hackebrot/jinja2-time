@@ -2,9 +2,21 @@
 Jinja2 Time
 ===========
 
-|travis-ci|
+|pypi| |pyversions| |license| |travis-ci|
 
 Jinja2 Extension for Dates and Times
+
+.. |pypi| image:: https://img.shields.io/pypi/v/jinja2-time.svg
+   :target: https://pypi.python.org/pypi/jinja2-time
+   :alt: PyPI Package
+
+.. |pyversions| image:: https://img.shields.io/pypi/pyversions/jinja2-time.svg
+   :target: https://pypi.python.org/pypi/jinja2-time/
+   :alt: PyPI Python Versions
+
+.. |license| image:: https://img.shields.io/pypi/l/jinja2-time.svg
+   :target: https://pypi.python.org/pypi/jinja2-time
+   :alt: PyPI Package License
 
 .. |travis-ci| image:: https://travis-ci.org/hackebrot/jinja2-time.svg?branch=master
     :target: https://travis-ci.org/hackebrot/jinja2-time
