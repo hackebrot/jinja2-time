@@ -26,6 +26,15 @@ It will automatically install `Jinja2`_ along with `arrow`_.
 .. _`arrow`: https://github.com/crsmithdev/arrow
 .. _`pip`: https://pypi.python.org/pypi/pip/
 
+Usage
+-----
+
+The extension comes with a ``now`` tag that provides convenient access to the
+`arrow.now() API`_ from your templates:
+
+.. _`arrow.now() API`: http://crsmithdev.com/arrow/#arrow.factory.ArrowFactory.now
+
+
 Code of Conduct
 ---------------
 
