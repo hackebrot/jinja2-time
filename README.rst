@@ -30,12 +30,12 @@ Usage
 -----
 
 The extension comes with a ``now`` tag that provides convenient access to the
-`arrow.now() API`_ from your templates.
+`arrow.now()`_ API from your templates.
 
 You can control the output by specifying a format, that will be passed to
 Python's `strftime()`_:
 
-.. _`arrow.now() API`: http://crsmithdev.com/arrow/#arrow.factory.ArrowFactory.now
+.. _`arrow.now()`: http://crsmithdev.com/arrow/#arrow.factory.ArrowFactory.now
 .. _`strftime()`: https://docs.python.org/3.5/library/datetime.html#strftime-and-strptime-behavior
 
 .. code-block:: python
