@@ -30,9 +30,33 @@ Usage
 -----
 
 The extension comes with a ``now`` tag that provides convenient access to the
-`arrow.now() API`_ from your templates:
+`arrow.now() API`_ from your templates.
+
+You can control the output by specifying a format, that will be passed to
+Python's `strftime()`_:
 
 .. _`arrow.now() API`: http://crsmithdev.com/arrow/#arrow.factory.ArrowFactory.now
+.. _`strftime()`: https://docs.python.org/3.5/library/datetime.html#strftime-and-strptime-behavior
+
+.. code-block:: python
+
+    from jinja2 import Environment
+
+    env = Environment(extensions=['jinja2_time.TimeExtension'])
+
+    # Timezone 'local', default format -> "2015-12-10"
+    template = env.from_string("{% now 'local' %}")
+
+    # Timezone 'utc', explicit format -> "Thu, 10 Dec 2015 15:49:01"
+    template = env.from_string("{% now 'utc', '%a, %d %b %Y %H:%M:%S' %}")
+
+    # Timezone 'Europe/Berlin', explicit format -> "CET +0100"
+    template = env.from_string("{% now 'Europe/Berlin', '%Z %z' %}")
+
+    # Timezone 'utc', explicit format -> "2015"
+    template = env.from_string("{% now 'utc', '%Y' %}")
+
+    template.render()
 
 
 Code of Conduct
