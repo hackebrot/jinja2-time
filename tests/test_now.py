@@ -36,6 +36,8 @@ def valid_tz(request):
 
 
 def test_accept_valid_timezones(environment, valid_tz):
-    template = environment.from_string("{% now '" + valid_tz + "' %}")
+    template = environment.from_string(
+        "{% now '" + valid_tz + "', '%Y-%m' %}"
+    )
 
-    assert '2015' in template.render()
+    assert template.render() == '2015-12'
