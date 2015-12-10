@@ -2,7 +2,13 @@
 Jinja2 Time
 ===========
 
+|travis-ci|
+
 Jinja2 Extension for Dates and Times
+
+.. |travis-ci| image:: https://travis-ci.org/hackebrot/jinja2-time.svg?branch=master
+    :target: https://travis-ci.org/hackebrot/jinja2-time
+    :alt: See Build Status on Travis CI
 
 Installation
 ------------
