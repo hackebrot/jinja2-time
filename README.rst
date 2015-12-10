@@ -25,11 +25,9 @@ Jinja2 Extension for Dates and Times
 Installation
 ------------
 
-**jinja2-time** is *not yet* available for download from `PyPI`_ via `pip`_.
+**jinja2-time** is available for download from `PyPI`_ via `pip`_::
 
-For the time being please install via::
-
-    $ pip install git+https://github.com/hackebrot/jinja2-time.git
+    $ pip install jinja2-time
 
 It will automatically install `Jinja2`_ along with `arrow`_.
 
