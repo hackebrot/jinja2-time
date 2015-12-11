@@ -6,7 +6,7 @@ from freezegun import freeze_time
 from jinja2 import Environment, exceptions
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture
 def environment():
     return Environment(extensions=['jinja2_time.TimeExtension'])
 
@@ -41,3 +41,11 @@ def test_accept_valid_timezones(environment, valid_tz):
     )
 
     assert template.render() == '2015-12'
+
+
+def test_environment_datetime_format(environment):
+    environment.datetime_format = '%a, %d %b %Y %H:%M:%S'
+
+    template = environment.from_string("{% now 'utc' %}")
+
+    assert template.render() == "Wed, 09 Dec 2015 23:33:01"
