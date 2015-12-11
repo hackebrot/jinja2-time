@@ -29,9 +29,9 @@ Installation
 
     $ pip install jinja2-time
 
-It will automatically install `Jinja2`_ along with `arrow`_.
+It will automatically install `jinja2`_ along with `arrow`_.
 
-.. _`Jinja2`: https://github.com/mitsuhiko/jinja2
+.. _`jinja2`: https://github.com/mitsuhiko/jinja2
 .. _`PyPI`: https://pypi.python.org/pypi
 .. _`arrow`: https://github.com/crsmithdev/arrow
 .. _`pip`: https://pypi.python.org/pypi/pip/
