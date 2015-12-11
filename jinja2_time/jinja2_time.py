@@ -14,12 +14,12 @@ class TimeExtension(Extension):
 
         # add the defaults to the environment
         environment.extend(
-            date_format='%Y-%m-%d',
+            datetime_format='%Y-%m-%d',
         )
 
-    def _now(self, timezone, date_format):
-        date_format = date_format or self.environment.date_format
-        return arrow.now(timezone).strftime(date_format)
+    def _now(self, timezone, datetime_format):
+        datetime_format = datetime_format or self.environment.datetime_format
+        return arrow.now(timezone).strftime(datetime_format)
 
     def parse(self, parser):
         lineno = next(parser.stream).lineno
