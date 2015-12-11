@@ -68,6 +68,22 @@ Python's `strftime()`_:
 
     template.render()
 
+**TimeExtension** extends the environment with a ``datetime_format`` attribute,
+that is used as a fallback if you omit the format for ``now``.
+
+.. code-block:: python
+
+    from jinja2 import Environment
+
+    env = Environment(extensions=['jinja2_time.TimeExtension'])
+
+    env.datetime_format = '%a, %d %b %Y %H:%M:%S'
+
+    # Timezone 'utc', default format -> "Thu, 10 Dec 2015 15:49:01"
+    template = env.from_string("{% now 'utc' %}")
+
+    template.render()
+
 Issues
 ------
 
