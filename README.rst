@@ -39,6 +39,9 @@ It will automatically install `Jinja2`_ along with `arrow`_.
 Usage
 -----
 
+Now Tag
+~~~~~~~
+
 The extension comes with a ``now`` tag that provides convenient access to the
 `arrow.now()`_ API from your templates.
 
@@ -68,8 +71,12 @@ Python's `strftime()`_:
 
     template.render()
 
-**TimeExtension** extends the environment with a ``datetime_format`` attribute,
-that is used as a fallback if you omit the format for ``now``.
+Default Datetime Format
+~~~~~~~~~~~~~~~~~~~~~~~
+
+**TimeExtension** extends the environment with a ``datetime_format`` attribute.
+
+It is used as a fallback if you omit the format for ``now``.
 
 .. code-block:: python
 
