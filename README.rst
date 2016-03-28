@@ -113,9 +113,11 @@ License
 Distributed under the terms of the `MIT`_ license, jinja2-time is free and open source software
 
 .. image:: https://opensource.org/trademarks/osi-certified/web/osi-certified-300x250.png
-   :height: 250 px
-   :width: 300 px
-   :scale: 50 %
+   :height: 250
+   :width: 300
+   :scale: 50
+   :align: left
    :alt: OSI certified
+   :target: https://opensource.org/
 
 .. _`MIT`: http://opensource.org/licenses/MIT
