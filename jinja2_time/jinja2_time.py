@@ -17,14 +17,22 @@ class TimeExtension(Extension):
             datetime_format='%Y-%m-%d',
         )
 
-    def _now(self, timezone, datetime_format):
+    def _now(self, timezone, delta, datetime_format):
         datetime_format = datetime_format or self.environment.datetime_format
+        if delta:
+            return arrow.now(timezone).replace(
+                seconds=float(delta)).strftime(datetime_format)
         return arrow.now(timezone).strftime(datetime_format)
 
     def parse(self, parser):
         lineno = next(parser.stream).lineno
 
         args = [parser.parse_expression()]
+
+        if parser.stream.skip_if('assign'):
+            args.append(parser.parse_expression())
+        else:
+            args.append(nodes.Const(None))
 
         if parser.stream.skip_if('comma'):
             args.append(parser.parse_expression())

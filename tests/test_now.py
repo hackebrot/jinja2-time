@@ -49,3 +49,26 @@ def test_environment_datetime_format(environment):
     template = environment.from_string("{% now 'utc' %}")
 
     assert template.render() == "Wed, 09 Dec 2015 23:33:01"
+
+
+def test_delta_plus(environment):
+    template = environment.from_string(
+         "{% now 'utc' ='+86400' %}"
+        )
+    assert template.render() == "2015-12-10"
+
+
+def test_delta_subs(environment):
+    template = environment.from_string(
+         "{% now 'utc' ='-86400' %}"
+        )
+    assert template.render() == "2015-12-08"
+
+
+def test_delta_format(environment):
+    environment.datetime_format = '%a, %d %b %Y %H:%M:%S'
+
+    template = environment.from_string(
+         "{% now 'utc' ='-3661' %}"
+        )
+    assert template.render() == "Wed, 09 Dec 2015 22:32:00"
