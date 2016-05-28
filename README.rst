@@ -70,6 +70,14 @@ Python's `strftime()`_:
     template = env.from_string("{% now 'utc', '%Y' %}")
 
     template.render()
+    
+You can control some timedelta offset for now time:
+
+.. code-block:: python
+
+	# Timezone 'utc' plus 3600 seconds, explicit format -> "Thu, 10 Dec 2015 16:49:01"
+    template = env.from_string("{% now 'utc' ='+3600', '%a, %d %b %Y %H:%M:%S' %}")
+
 
 Default Datetime Format
 ~~~~~~~~~~~~~~~~~~~~~~~

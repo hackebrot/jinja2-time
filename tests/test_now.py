@@ -66,9 +66,8 @@ def test_delta_subs(environment):
 
 
 def test_delta_format(environment):
-    environment.datetime_format = '%a, %d %b %Y %H:%M:%S'
 
     template = environment.from_string(
-         "{% now 'utc' ='-3661' %}"
+         "{% now 'utc' ='-3661', '%a, %d %b %Y %H:%M:%S' %}"
         )
     assert template.render() == "Wed, 09 Dec 2015 22:32:00"
