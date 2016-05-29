@@ -49,3 +49,33 @@ def test_environment_datetime_format(environment):
     template = environment.from_string("{% now 'utc' %}")
 
     assert template.render() == "Wed, 09 Dec 2015 23:33:01"
+
+
+def test_add_time(environment):
+    environment.datetime_format = '%a, %d %b %Y %H:%M:%S'
+
+    template = environment.from_string(
+        "{% now 'utc' + 'hours=2,seconds=30' %}"
+    )
+
+    assert template.render() == "Thu, 10 Dec 2015 01:33:31"
+
+
+def test_substract_time(environment):
+    environment.datetime_format = '%a, %d %b %Y %H:%M:%S'
+
+    template = environment.from_string(
+        "{% now 'utc' - 'minutes=11' %}"
+    )
+
+    assert template.render() == "Wed, 09 Dec 2015 23:22:01"
+
+
+def test_offset_with_format(environment):
+    environment.datetime_format = '%d %b %Y %H:%M:%S'
+
+    template = environment.from_string(
+        "{% now 'utc' - 'days=2,minutes=33,seconds=1', '%d %b %Y %H:%M:%S' %}"
+    )
+
+    assert template.render() == "07 Dec 2015 23:00:00"
