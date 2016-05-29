@@ -13,24 +13,53 @@ class TimeExtension(Extension):
         super(TimeExtension, self).__init__(environment)
 
         # add the defaults to the environment
-        environment.extend(
-            datetime_format='%Y-%m-%d',
-        )
+        environment.extend(datetime_format='%Y-%m-%d')
+
+    def _datetime(self, timezone, operator, offset, datetime_format):
+        d = arrow.now(timezone)
+
+        # Parse replace kwargs from offset and include operator
+        replace_params = {}
+        for param in offset.split(','):
+            interval, value = param.split('=')
+            replace_params[interval] = float(operator + value)
+        d = d.replace(**replace_params)
+
+        if datetime_format is None:
+            datetime_format = self.environment.datetime_format
+        return d.strftime(datetime_format)
 
     def _now(self, timezone, datetime_format):
-        datetime_format = datetime_format or self.environment.datetime_format
+        if datetime_format is None:
+            datetime_format = self.environment.datetime_format
         return arrow.now(timezone).strftime(datetime_format)
 
     def parse(self, parser):
         lineno = next(parser.stream).lineno
 
-        args = [parser.parse_expression()]
+        node = parser.parse_expression()
 
         if parser.stream.skip_if('comma'):
-            args.append(parser.parse_expression())
+            datetime_format = parser.parse_expression()
         else:
-            args.append(nodes.Const(None))
+            datetime_format = nodes.Const(None)
 
-        call = self.call_method('_now', args, lineno=lineno)
-
-        return nodes.Output([call], lineno=lineno)
+        if isinstance(node, nodes.Add):
+            call_method = self.call_method(
+                '_datetime',
+                [node.left, nodes.Const('+'), node.right, datetime_format],
+                lineno=lineno,
+            )
+        elif isinstance(node, nodes.Sub):
+            call_method = self.call_method(
+                '_datetime',
+                [node.left, nodes.Const('-'), node.right, datetime_format],
+                lineno=lineno,
+            )
+        else:
+            call_method = self.call_method(
+                '_now',
+                [node, datetime_format],
+                lineno=lineno,
+            )
+        return nodes.Output([call_method], lineno=lineno)
