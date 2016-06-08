@@ -91,6 +91,26 @@ It is used as a fallback if you omit the format for ``now``.
 
     template.render()
 
+Time Offset
+~~~~~~~~~~~
+
+**jinja2-time** also allows to specify a relative time offset by which ``now``
+will be modified:
+
+.. code-block:: python
+
+    "{% now 'utc' + 'hours=2,seconds=30' %}"
+
+    "{% now 'utc' - 'minutes=11' %}"
+
+    "{% now 'utc' - 'days=2,minutes=33,seconds=1', '%d %b %Y %H:%M:%S' %}"
+
+Further documentation on the underlying functionality can be found in the
+`arrow replace docs`_.
+
+.. _`arrow replace docs`: http://arrow.readthedocs.io/en/latest/#replace-shift
+
+
 Issues
 ------
 
