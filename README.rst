@@ -102,13 +102,13 @@ relative time offset:
     # Examples for now "2015-12-09 23:33:01"
 
     # "Thu, 10 Dec 2015 01:33:31"
-    "{% now 'utc' + 'hours=2,seconds=30' %}"
+    "{% now 'utc' + 'hours=2, seconds=30' %}"
 
     # "Wed, 09 Dec 2015 23:22:01"
     "{% now 'utc' - 'minutes=11' %}"
 
     # "07 Dec 2015 23:00:00"
-    "{% now 'utc' - 'days=2,minutes=33,seconds=1', '%d %b %Y %H:%M:%S' %}"
+    "{% now 'utc' - 'days=2, minutes=33, seconds=1', '%d %b %Y %H:%M:%S' %}"
 
 Further documentation on the underlying functionality can be found in the
 `arrow replace docs`_.

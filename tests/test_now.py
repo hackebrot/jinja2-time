@@ -75,7 +75,7 @@ def test_offset_with_format(environment):
     environment.datetime_format = '%d %b %Y %H:%M:%S'
 
     template = environment.from_string(
-        "{% now 'utc' - 'days=2,minutes=33,seconds=1', '%d %b %Y %H:%M:%S' %}"
+        "{% now 'utc' - 'days=2, minutes=33,seconds=1', '%d %b %Y %H:%M:%S' %}"
     )
 
     assert template.render() == "07 Dec 2015 23:00:00"
