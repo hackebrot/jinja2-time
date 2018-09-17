@@ -22,7 +22,12 @@ class TimeExtension(Extension):
         replace_params = {}
         for param in offset.split(','):
             interval, value = param.split('=')
-            replace_params[interval.strip()] = float(operator + value.strip())
+
+            try:
+                replace_params[interval.strip()] = int(operator + value.strip())
+            except ValueError:
+                replace_params[interval.strip()] = float(operator + value.strip())
+
         d = d.replace(**replace_params)
 
         if datetime_format is None:
