@@ -49,7 +49,7 @@ You can control the output by specifying a format, that will be passed to
 Python's `strftime()`_:
 
 .. _`pendulum.now()`: https://pendulum.eustace.io/docs/#instantiation
-.. _`strftime()`: https://docs.python.org/3.5/library/datetime.html#strftime-and-strptime-behavior
+.. _`strftime()`: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
 
 .. code-block:: python
 
