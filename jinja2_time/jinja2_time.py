@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import arrow
+import pendulum
 
 from jinja2 import nodes
 from jinja2.ext import Extension
@@ -16,14 +16,14 @@ class TimeExtension(Extension):
         environment.extend(datetime_format='%Y-%m-%d')
 
     def _datetime(self, timezone, operator, offset, datetime_format):
-        d = arrow.now(timezone)
+        d = pendulum.now(timezone)
 
         # Parse replace kwargs from offset and include operator
         replace_params = {}
         for param in offset.split(','):
             interval, value = param.split('=')
             replace_params[interval.strip()] = float(operator + value.strip())
-        d = d.replace(**replace_params)
+        d = d.add(**replace_params)
 
         if datetime_format is None:
             datetime_format = self.environment.datetime_format
@@ -32,7 +32,7 @@ class TimeExtension(Extension):
     def _now(self, timezone, datetime_format):
         if datetime_format is None:
             datetime_format = self.environment.datetime_format
-        return arrow.now(timezone).strftime(datetime_format)
+        return pendulum.now(timezone).strftime(datetime_format)
 
     def parse(self, parser):
         lineno = next(parser.stream).lineno
