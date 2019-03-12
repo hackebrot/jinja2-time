@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import pendulum
 import pytest
 
-from freezegun import freeze_time
 from jinja2 import Environment, exceptions
 
 
@@ -12,11 +12,11 @@ def environment():
 
 
 @pytest.yield_fixture(autouse=True)
-def freeze():
-    freezer = freeze_time("2015-12-09 23:33:01")
-    freezer.start()
+def freeze(monkeypatch):
+    monkeypatch.setattr(
+        pendulum, 'now', lambda tz: pendulum.datetime(2015, 12, 9, 23, 33, 1, tz=tz)
+    )
     yield
-    freezer.stop()
 
 
 def test_tz_is_required(environment):

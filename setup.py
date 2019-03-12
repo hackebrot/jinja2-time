@@ -31,7 +31,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'jinja2',
-        'arrow'
+        'pendulum',
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',

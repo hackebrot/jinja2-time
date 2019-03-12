@@ -29,11 +29,11 @@ Installation
 
     $ pip install jinja2-time
 
-It will automatically install `jinja2`_ along with `arrow`_.
+It will automatically install `jinja2`_ along with `pendulum`_.
 
 .. _`jinja2`: https://github.com/mitsuhiko/jinja2
 .. _`PyPI`: https://pypi.python.org/pypi
-.. _`arrow`: https://github.com/crsmithdev/arrow
+.. _`pendulum`: https://pendulum.eustace.io
 .. _`pip`: https://pypi.python.org/pypi/pip/
 
 Usage
@@ -43,12 +43,12 @@ Now Tag
 ~~~~~~~
 
 The extension comes with a ``now`` tag that provides convenient access to the
-`arrow.now()`_ API from your templates.
+`pendulum.now()`_ API from your templates.
 
 You can control the output by specifying a format, that will be passed to
 Python's `strftime()`_:
 
-.. _`arrow.now()`: http://crsmithdev.com/arrow/#arrow.factory.ArrowFactory.now
+.. _`pendulum.now()`: https://pendulum.eustace.io/docs/#instantiation
 .. _`strftime()`: https://docs.python.org/3.5/library/datetime.html#strftime-and-strptime-behavior
 
 .. code-block:: python
@@ -111,9 +111,9 @@ relative time offset:
     "{% now 'utc' - 'days=2, minutes=33, seconds=1', '%d %b %Y %H:%M:%S' %}"
 
 Further documentation on the underlying functionality can be found in the
-`arrow replace docs`_.
+`pendulum add() docs`_.
 
-.. _`arrow replace docs`: http://arrow.readthedocs.io/en/latest/#replace-shift
+.. _`pendulum add() docs`: https://pendulum.eustace.io/docs/#addition-and-subtraction
 
 
 Issues
