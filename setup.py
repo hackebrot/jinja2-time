@@ -31,8 +31,12 @@ setup(
     zip_safe=False,
     install_requires=[
         'jinja2',
-        'arrow'
     ],
+    extras_require={
+        ":python_version=='2.7'": ["arrow"],
+        ":python_version<='3.4'": ["arrow<=0.13.2"],
+        ":python_version>='3.5'": ["arrow"]
+    },
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
