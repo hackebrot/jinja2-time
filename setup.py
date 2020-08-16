@@ -31,12 +31,8 @@ setup(
     zip_safe=False,
     install_requires=[
         'jinja2',
+        'arrow'
     ],
-    extras_require={
-        ":python_version=='2.7'": ["arrow"],
-        ":python_version<='3.4'": ["arrow<=0.13.2"],
-        ":python_version>='3.5'": ["arrow"]
-    },
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
@@ -46,9 +42,10 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Programming Language :: Python',
