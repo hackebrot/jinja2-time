@@ -29,11 +29,10 @@ Installation
 
     $ pip install jinja2-time
 
-It will automatically install `jinja2`_ along with `arrow`_.
+It will automatically install `jinja2`_ and its dependencies.
 
 .. _`jinja2`: https://github.com/mitsuhiko/jinja2
 .. _`PyPI`: https://pypi.python.org/pypi
-.. _`arrow`: https://github.com/crsmithdev/arrow
 .. _`pip`: https://pypi.python.org/pypi/pip/
 
 Usage
@@ -42,14 +41,19 @@ Usage
 Now Tag
 ~~~~~~~
 
-The extension comes with a ``now`` tag that provides convenient access to the
-`arrow.now()`_ API from your templates.
+The extension comes with a ``now`` tag that retrieves the current datetime
+in a given time zone from your templates. Time zone specifiers supported are:
+
+- ``utc``
+- ``local``
+- ``[±]HH[:][MM]``
+- Formats supported by `dateutil.tz.gettz`_ (IANA zones, GNU tz strings, etc)
 
 You can control the output by specifying a format, that will be passed to
 Python's `strftime()`_:
 
-.. _`arrow.now()`: http://crsmithdev.com/arrow/#arrow.factory.ArrowFactory.now
 .. _`strftime()`: https://docs.python.org/3.5/library/datetime.html#strftime-and-strptime-behavior
+.. _`dateutil.tz.gettz`: https://dateutil.readthedocs.io/en/latest/tz.html#dateutil.tz.gettz
 
 .. code-block:: python
 
@@ -111,9 +115,9 @@ relative time offset:
     "{% now 'utc' - 'days=2, minutes=33, seconds=1', '%d %b %Y %H:%M:%S' %}"
 
 Further documentation on the underlying functionality can be found in the
-`arrow replace docs`_.
+`dateutil relativedelta docs`_.
 
-.. _`arrow replace docs`: http://arrow.readthedocs.io/en/latest/#replace-shift
+.. _`dateutil relativedelta docs`: https://dateutil.readthedocs.io/en/latest/relativedelta.html#module-dateutil.relativedelta
 
 
 Issues
