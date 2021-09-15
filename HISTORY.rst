@@ -6,7 +6,8 @@ History
 0.3.0 (????-??-??)
 ------------------
 
-* Limit arrow version to 0.13.2 when install on python >3.0 and <=3.4
+* Dropping support for python <=3.4 because arrow dropped those.
+* Fix time offset bug caused by arrow [PR276](https://github.com/arrow-py/arrow/pull/276).
 
 
 0.2.0 (2016-06-08)
