@@ -19,11 +19,11 @@ class TimeExtension(Extension):
         d = arrow.now(timezone)
 
         # Parse replace kwargs from offset and include operator
-        replace_params = {}
+        shift_params = {}
         for param in offset.split(','):
             interval, value = param.split('=')
-            replace_params[interval.strip()] = float(operator + value.strip())
-        d = d.replace(**replace_params)
+            shift_params[interval.strip()] = float(operator + value.strip())
+        d = d.shift(**shift_params)
 
         if datetime_format is None:
             datetime_format = self.environment.datetime_format

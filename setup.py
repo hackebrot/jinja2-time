@@ -33,9 +33,9 @@ setup(
         'jinja2',
     ],
     extras_require={
-        ":python_version=='2.7'": ["arrow"],
+        ":python_version=='2.7'": ["arrow>=0.9.0"],
         ":python_version<='3.4'": ["arrow<=0.13.2"],
-        ":python_version>='3.5'": ["arrow"]
+        ":python_version>='3.5'": ["arrow>=0.9.0"]
     },
     classifiers=[
         'Development Status :: 3 - Alpha',
