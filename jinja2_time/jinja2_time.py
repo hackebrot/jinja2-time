@@ -23,7 +23,7 @@ class TimeExtension(Extension):
         for param in offset.split(','):
             interval, value = param.split('=')
             replace_params[interval.strip()] = float(operator + value.strip())
-        d = d.replace(**replace_params)
+        d = d.shift(**replace_params)
 
         if datetime_format is None:
             datetime_format = self.environment.datetime_format
